@@ -21,3 +21,10 @@ After you get the server run properly, please go <br>***localhost:12580*** <br>i
 
 Also, if you do not want to download or run any files from here. Please see screen shoots for a better understanding.
 ![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/install.png)
+![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/rundev.png)
+![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/getAll.png)
+![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/findWayne.png)
+![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/123%20404.png)
+![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/posted.png)
+![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/400.png)
+![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/newpost.png)
