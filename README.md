@@ -12,7 +12,8 @@ Please download the file and using command:
   1. ```npm install```
   2. ```npm run dev```<br>
 If you run the server correctly, you will see a tips call <br>`Captain Teemo on duty` in terminal. <br>
-The server is build by express and nodemon, npm will help you download all node modules needed.
+The server is build by express and nodemon, npm will help you download all node modules needed.<br>
+Please also remeber in mind that always  using `CTRL` **+** `C` to **shut down server** when you no longer need the server **avoiding localhost occupied**
 
 After you get the server run properly, please go <br>***localhost:12580*** <br>in postman try different API.<br><br>
 ***1. localhost:12580/people*** <br>using **get** method will send you all people object.<br><br>
