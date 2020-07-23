@@ -18,7 +18,7 @@ Please also remeber in mind that always  using <br>`CTRL` **+** `C` <br>to **shu
 After you get the server run properly, please go <br>***localhost:12580*** <br>in postman try different API.<br><br>
 ***1. localhost:12580/people*** <br>using **get** method will send you all people object.<br><br>
 ***2. localhost:12580/people?name=xxx*** <br>using **get** method will send you the people who matched your criteria.<br><br>
-***3. localhost:12580/people*** <br>using **post** method will let you post your name into the database, <br>**name is required & can not using empty name**.<br><br><br>
+***3. localhost:12580/people*** <br>using **post** method will let you post your name into the database, <br>**name is required & can not using empty name**.<br><br>
 
 Also, if you do not want to download or run any files from here. Please see screen shoots for a better understanding.
 ![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/install.png)
