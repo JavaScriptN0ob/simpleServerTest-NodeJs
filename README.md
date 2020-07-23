@@ -11,7 +11,7 @@ This server is not finished yet, more updates will coming in next few days.~~
 Please download the file and using command:
   1. ```npm install```
   2. ```npm run dev```<br>
--- If you run the server correctly, you will see a tips call <br>`Captain Teemo on duty` in terminal. <br>
+-- If you run the server correctly, you will see a tips called <br>`Captain Teemo on duty` in terminal. <br>
 The server is build by express and nodemon, npm will help you download all node modules needed.<br><br>
 -- Please also remeber in mind that always  using <br>`CTRL` **+** `C` <br>to **shut down server** when you no longer need the server **avoiding localhost occupied**
 
