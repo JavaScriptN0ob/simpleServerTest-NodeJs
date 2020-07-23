@@ -20,4 +20,4 @@ After you get the server run properly, please go <br>***localhost:12580*** <br>i
 ***3. localhost:12580/people*** <br>using **post** method will let you post your name into the database, <br>**name is required & can not using empty name**.<br><br><br>
 
 Also, if you do not want to download or run any files from here. Please see screen shoots for a better understanding.
-[image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/install.png)
+![image](https://github.com/JavaScriptN0ob/simpleServerTest-NodeJs/blob/master/source/screenshoot/install.png)
