@@ -11,7 +11,7 @@ This server is not finished yet, more updates will coming in next few days.~~
 Please download the file and using command:
   1. ```npm install```
   2. ```npm run dev```<br>
-If you run the server correctly, you will see a tips call `Captain Teemo on duty in terminal`. 
+If you run the server correctly, you will see a tips call <br>`Captain Teemo on duty in terminal`. <br>
 The server is build by express and nodemon, npm will help you download all node modules needed.
 
 After you get the server run properly, please go ***localhost:12580*** in postman try different API.
