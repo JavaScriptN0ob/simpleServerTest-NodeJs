@@ -6,6 +6,7 @@
 // received.
 
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 const people = [
@@ -40,6 +41,12 @@ function findPeople(name) {
   }
 }
 
+// app.use(bodyParser.json({limit: '1mb'}));
+// app.use(bodyParser.urlencoded({
+//   extended: true,
+// }));
+app.use(express.json());
+
 app.get('/greeting/:name', (req, res) => {
   const { name } = req.params; 
   const { title } = req.query;
@@ -48,12 +55,17 @@ app.get('/greeting/:name', (req, res) => {
 
 app.get('/people', (req, res) => {
   const { name } = req.query;
-  res.send(findPeople(`${name}`));
+  if(name !== undefined) {
+    res.send(findPeople(`${name}`));
+  } else {
+    res.send(people)
+  }
+  
 })
 
 app.post('/people', (req, res) => {
   res.send('welcome posting your personal details!')
-  console.log(req.data)
+  console.log(1, req.body);
 });
 
 app.listen('12580', () => {
