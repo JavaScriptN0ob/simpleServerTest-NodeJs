@@ -7,12 +7,13 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const { response } = require('express');
 const app = express();
 
 const people = [
   {
     name: 'Wayne',
-    age: '26',
+    age: '26', 
     gender: 'male',
     occupation: 'developer',
   },
@@ -36,10 +37,27 @@ function findPeople(name) {
       return people[i];
     }
     else {
-      return (`----- Sorry, ${name} is not found in our system -----`);
+      return false
     }
   }
 }
+
+function addNewPeople(obj) {
+  people.push(obj);
+}
+
+function setResponseStatusCode(response, statusCode) {
+  response.status(statusCode);
+}
+
+function addRequestTimeStamp(response, time) {
+  response.header({'X-time': `${time}`});
+}
+
+/* ---------------------------------------------
+--   use express to parse response body json  --
+--   either choose bodyParser || express.json --
+----------------------------------------------*/
 
 // app.use(bodyParser.json({limit: '1mb'}));
 // app.use(bodyParser.urlencoded({
@@ -47,25 +65,69 @@ function findPeople(name) {
 // }));
 app.use(express.json());
 
-app.get('/greeting/:name', (req, res) => {
-  const { name } = req.params; 
-  const { title } = req.query;
-  res.send(`hello ${title}.${name} !`);
-})
+// app.get('/greeting/:name', (req, res) => {
+//   const { name } = req.params; 
+//   const { title } = req.query;
+//   res.status(200).send(`hello ${title}.${name} !`);
+// })
+
+
+/* -------------------------------------------------------
+--  when path(route params) is /people & method is get  --
+--  also there is no query params, response will show   --
+--  all data object from people.                        --
+--                                                      --
+--  if query params is name & name if not undefined     --
+--  use for loop finding any object match the criteria  --
+--  if find the name matches then response the people   --
+--  otherwise response send not found                   --
+--------------------------------------------------------*/
+
 
 app.get('/people', (req, res) => {
   const { name } = req.query;
+  req.time = new Date().toLocaleString();
   if(name !== undefined) {
-    res.send(findPeople(`${name}`));
-  } else {
-    res.send(people)
+    if(findPeople(`${name}`)) {
+      addRequestTimeStamp(res, req.time);
+      setResponseStatusCode(res, 200);
+      res.send(findPeople(`${name}`));
+    } else {
+      addRequestTimeStamp(res, req.time);
+      setResponseStatusCode(res, 404);
+      res.send(`----- Sorry, ${name} is not found in our system -----`)
+    }
+  } 
+  else {
+    // console.log(typeof(res._header))
+    // console.log(res._header)
+    // res.header({'X-time': `${req.time}`});
+    addRequestTimeStamp(res, req.time);
+    setResponseStatusCode(res, 200);
+    res.send(people);
   }
-  
 })
 
+/* ---------------------------------------------------
+--   if the name is empty or undefined return 400   --
+--   otherwise return 201 and push the request json --
+--   to the database                                --
+----------------------------------------------------*/
+
 app.post('/people', (req, res) => {
-  res.send('welcome posting your personal details!')
-  console.log(1, req.body);
+  // console.log(1, req.body.name);
+  // console.log(2, req.body.name.trim())
+  req.time = new Date().toLocaleString();
+  if(req.body.name === undefined || req.body.name.trim() === '') {
+    addRequestTimeStamp(res, req.time);
+    setResponseStatusCode(res, 400);
+    res.send('Name is required');
+  } else {
+    addRequestTimeStamp(res, req.time);
+    setResponseStatusCode(res, 201);
+    res.send('Thank you for the posting');
+    addNewPeople(req.body);
+  }
 });
 
 app.listen('12580', () => {
