@@ -91,11 +91,11 @@ app.get('/people', (req, res) => {
     if(findPeople(`${name}`)) {
       addRequestTimeStamp(res, req.time);
       setResponseStatusCode(res, 200);
-      res.send(findPeople(`${name}`));
+      return res.send(findPeople(`${name}`));
     } else {
       addRequestTimeStamp(res, req.time);
       setResponseStatusCode(res, 404);
-      res.send(`----- Sorry, ${name} is not found in our system -----`)
+      return res.send(`----- Sorry, ${name} is not found in our system -----`)
     }
   } 
   else {
@@ -104,7 +104,7 @@ app.get('/people', (req, res) => {
     // res.header({'X-time': `${req.time}`});
     addRequestTimeStamp(res, req.time);
     setResponseStatusCode(res, 200);
-    res.send(people);
+    return res.send(people);
   }
 })
 
@@ -121,12 +121,12 @@ app.post('/people', (req, res) => {
   if(req.body.name === undefined || req.body.name.trim() === '') {
     addRequestTimeStamp(res, req.time);
     setResponseStatusCode(res, 400);
-    res.send('Name is required');
+    return res.send('Name is required');
   } else {
     addRequestTimeStamp(res, req.time);
     setResponseStatusCode(res, 201);
-    res.send('Thank you for the posting');
     addNewPeople(req.body);
+    return res.send('Thank you for the posting');
   }
 });
 
