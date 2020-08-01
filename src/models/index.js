@@ -16,36 +16,33 @@ const people = [
     age: '27',
     gender: 'male',
     occupation: 'developer'
-  },
+  }
 ]
 
 function findPeople(name) {
-  // console.log(people.length)
-  for(let i = 0; i < people.length; i ++) {
-    if(name === people[i].name) {
-      return people[i];
+  if (name) {
+    const peopleFound = people.filter((p) => p.name == name);
+
+    if (peopleFound.length === 0){
+      return `${name} could not be found`;
     }
-    else {
-      return false
-    }
+    return peopleFound;
   }
+  else if (name === '') {
+    return 'name param is empty'
+  }
+  return people
 }
 
-function addNewPeople(obj) {
-  people.push(obj);
-}
-
-function setResponseStatusCode(response, statusCode) {
-  response.status(statusCode);
-}
-
-function addRequestTimeStamp(response, time) {
-  response.header({'X-time': `${time}`});
+function addNewPeople(peopleInput) {
+  if (peopleInput.name === undefined || peopleInput.name.trim() === '') {
+    return 'name is required';
+  }
+  people.push(peopleInput);
+  return peopleInput;
 }
 
 module.exports = {
   findPeople,
-  addNewPeople,
-  setResponseStatusCode,
-  addRequestTimeStamp
+  addNewPeople
 };

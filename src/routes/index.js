@@ -1,4 +1,10 @@
 const express = require('express');
-const postController = require('../controllers/post');
-const { validateId } = require('../middlewares/validateId');
+const serverController = require('../controllers/index');
+const addTimeStamp = require('../middleware/addTimeStamp');
 const router = express.Router();
+
+
+router.get('/people', addTimeStamp, serverController.getPost);
+router.post('/people', addTimeStamp, serverController.postPeople);
+
+module.exports = router;
