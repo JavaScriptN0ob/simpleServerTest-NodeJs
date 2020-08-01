@@ -9,7 +9,7 @@ This server is not finished yet, more updates will coming in next few days.~~
   all finished, debugged & tested.
 
 ### Updated on 02/08/2020
-  After deeper learning, I divide server.js into model, controller, routes, middleware layers. Please change branch to divided to check. <br>
+  After deeper learning, I divide server.js into model, controller, routes, middleware layers. Please change branch to divided to check. <br><br><br>
 
 Please download the file and using command:
   1. ```npm install```
